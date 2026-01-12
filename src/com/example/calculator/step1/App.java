@@ -34,8 +34,13 @@ public class App {
                     System.out.println("답: " + (num1 * num2));
                     break;
                 case '/':
-                    System.out.println("답: " + (num1 / num2));
-                    break;
+                    try {
+                        System.out.println("답: " + (num1 / num2));
+                        break;
+                    } catch (ArithmeticException e) {
+                        System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                        break;
+                    }   // 0으로 나눌 때 발생하는 오류의 예외 처리 기능 추가
                 default:
                     System.out.println("올바른 사칙연산 기호중에 하나를 입력하시오.(+, -, *, /)");
             }
@@ -43,7 +48,7 @@ public class App {
             String ex = sc.next();
             if (ex.equals("exit")) {
                 break;  // 반복문 종료(exit) 기능 추가
-            }
+            } // 반복문 완성
         }
     }
 }
