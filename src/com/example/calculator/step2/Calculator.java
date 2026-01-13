@@ -13,7 +13,9 @@ import java.util.ArrayList;
 public class Calculator {
     int num1, num2, result;
     char in;
-    ArrayList<Integer> save = new ArrayList<Integer>();
+
+    // 연산 결과를 저장하는 컬렉션 타입 필드를 외부에서 직접 접근 하지 못하도록 수정
+    private ArrayList<Integer> save = new ArrayList<>();
 
     // 입력 받은 사칙 연산을 수행 후 result에 저장 후 반환 기능 구현
     // save 리스트에 result 이력을 넣는 기능을 구현
@@ -61,6 +63,16 @@ public class Calculator {
     // 올바른 사칙연산 기호가 아닌 경우 출력 메시지
     public void exception2() {
         System.out.println("올바른 사칙연산 기호중에 하나를 입력하시오.(+, -, *, /)");
+    }
+
+    // Getter 메서드 구현
+    public ArrayList<Integer> getSave() {
+        return this.save;
+    }
+
+    // Setter 메서드 구현
+    public void setSave(ArrayList<Integer> save) {
+        this.save = save;
     }
 
 }
