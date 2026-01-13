@@ -14,7 +14,7 @@ public class Calculator {
     char in;
     ArrayList<Integer> save = new ArrayList<Integer>();
 
-    // 입력 받은 사칙 연산을 수행 후 result에 저장 후 반환
+    // 입력 받은 사칙 연산을 수행 후 result에 저장 후 반환 기능 구현
     // save 리스트에 result 이력을 넣는 기능을 구현
     public int calculate(int a, int b, char c) {
         this.num1 = a;
