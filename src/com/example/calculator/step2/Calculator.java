@@ -8,7 +8,8 @@ import java.util.ArrayList;
  * Date: 26. 1. 13.
  * Time: 오후 3:50
  **/
-
+// 제가 만든 코드가 마음에 들지 않습니다.
+// 뭔가 이상한 것 같은데 해결을 못하겠지만 결과는 의도한대로 잘 나옵니다.
 public class Calculator {
     int num1, num2, result;
     char in;
@@ -25,27 +26,41 @@ public class Calculator {
             case '+':
                 result = num1 + num2;
                 save.add(result);
-                break;
+                return result;
             case '-':
                 result = num1 - num2;
                 save.add(result);
-                break;
+                return result;
             case '*':
                 result = num1 * num2;
                 save.add(result);
-                break;
+                return result;
             case '/':
                 try {
                     result = num1 / num2;
-                    save.add(result);
-                    break;
+                    // ?: num2 != 0 이 부분이 항상 true 라는데 이해가 안됨
+                    if(num2 != 0) {
+                        save.add(result);
+                    }
+                    return result;
                 } catch (ArithmeticException e) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                    this.exception1();
                     break;
-                }   // 0으로 나눌 때 발생하는 오류의 예외 처리 기능 추가
+                }  // 0으로 나눌 때 발생하는 오류의 예외 처리 기능 추가
             default:
-                System.out.println("올바른 사칙연산 기호중에 하나를 입력하시오.(+, -, *, /)");
+                this.exception2();
         }
-        return result;
+        return 0;
     }
+
+    // 0 으로 나눌 때 출력 메시지
+    public void exception1() {
+        System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+    }
+
+    // 올바른 사칙연산 기호가 아닌 경우 출력 메시지
+    public void exception2() {
+        System.out.println("올바른 사칙연산 기호중에 하나를 입력하시오.(+, -, *, /)");
+    }
+
 }

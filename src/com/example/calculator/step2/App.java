@@ -28,8 +28,18 @@ public class App {
             char in = input.charAt(0);  // ?: (char) 를 안써도 됨
 
             // calculate 메서드 사용
-            int result = cal.calculate(num1, num2, in);
-            System.out.println("답: " + result);  // ?: 0으로 나눌 때 or 기호가 잘못되었을 때 메시지와 함께 result 반환값도 출력되는 오류 발생
+            if (!(in == '+' || in == '-' || in == '*' || in == '/')) {
+                cal.calculate(num1, num2, in);
+            } else {
+                if (in == '/' && num2 == 0) {
+                    cal.calculate(num1, num2, in);
+                } else {
+                    int result = cal.calculate(num1, num2, in);
+                    System.out.println("답: " + result);
+                }
+            }
+
+            System.out.println("저장된 계산값: " + cal.save); // 저장된 값 확인(test)
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String ex = sc.next();
