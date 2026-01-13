@@ -18,7 +18,6 @@ public class Calculator {
     private ArrayList<Integer> save = new ArrayList<>();
 
     // 입력 받은 사칙 연산을 수행 후 result에 저장 후 반환 기능 구현
-    // save 리스트에 result 이력을 넣는 기능을 구현
     public int calculate(int a, int b, char c) {
         this.num1 = a;
         this.num2 = b;
@@ -27,23 +26,16 @@ public class Calculator {
         switch (in) {
             case '+':
                 result = num1 + num2;
-                save.add(result);
                 return result;
             case '-':
                 result = num1 - num2;
-                save.add(result);
                 return result;
             case '*':
                 result = num1 * num2;
-                save.add(result);
                 return result;
             case '/':
                 try {
                     result = num1 / num2;
-                    // ?: num2 != 0 이 부분이 항상 true 라는데 이해가 안됨
-                    if(num2 != 0) {
-                        save.add(result);
-                    }
                     return result;
                 } catch (ArithmeticException e) {
                     this.exception1();
@@ -71,8 +63,8 @@ public class Calculator {
     }
 
     // Setter 메서드 구현
-    public void setSave(ArrayList<Integer> save) {
-        this.save = save;
+    public void setSave(int save) {
+        this.save.add(save);
     }
 
 }

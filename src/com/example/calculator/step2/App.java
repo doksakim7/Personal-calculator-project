@@ -1,6 +1,7 @@
 package com.example.calculator.step2;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -35,10 +36,12 @@ public class App {
                     cal.calculate(num1, num2, in);
                 } else {
                     int result = cal.calculate(num1, num2, in);
+                    cal.setSave(result);
                     System.out.println("답: " + result);
-                }
+                } // 세터를 이용하여 save 리스트에 result 이력을 넣는 기능을 구현
             }
-
+            ArrayList<Integer> newSave = cal.getSave();
+            System.out.println("저장된 계산값: " + newSave);
             // System.out.println("저장된 계산값: " + cal.save); // 저장된 값 확인(test)
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
