@@ -40,7 +40,7 @@ public class Calculator {
                 } catch (ArithmeticException e) {
                     this.exception1();
                     break;
-                }  // 0으로 나눌 때 발생하는 오류의 예외 처리 기능 추가
+                }
             default:
                 this.exception2();
         }
