@@ -32,9 +32,15 @@ public class App {
                 try {
                     System.out.print("첫 번째 숫자를 입력하세요: ");
                     num1 = sc.nextInt();
-                    break;
+
+                    // 음의 정수가 입력되면 예외 발생하는 기능 구현
+                    if(num1 < 0) {
+                        throw new InputMismatchException();
+                    } else {
+                        break;
+                    }
                 } catch (InputMismatchException e) {
-                    System.out.println("숫자만 입력하세요!");
+                    System.out.println("양의 정수와 0만 입력 가능합니다!");
                     sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
                 }
             }
@@ -43,9 +49,15 @@ public class App {
                 try {
                     System.out.print("두 번째 숫자를 입력하세요: ");
                     num2 = sc.nextInt();
-                    break;
+
+                    // 음의 정수가 입력되면 예외 발생하는 기능 구현
+                    if(num2 < 0) {
+                        throw new InputMismatchException();
+                    } else {
+                        break;
+                    }
                 } catch (InputMismatchException e) {
-                    System.out.println("숫자만 입력하세요!");
+                    System.out.println("양의 정수와 0만 입력 가능합니다!");
                     sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
                 }
             }
