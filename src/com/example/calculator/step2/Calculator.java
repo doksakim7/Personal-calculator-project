@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Date: 26. 1. 13.
  * Time: 오후 3:50
  **/
-// 제가 만든 코드가 마음에 들지 않습니다.
+// 제가 만든 코드가 마음에 들지 않습니다.(아직 절차 지향적인 코드에 가깝다고 생각합니다.)
 // 뭔가 이상한 것 같은데 해결을 못하겠지만 결과는 의도한대로 잘 나옵니다.
 public class Calculator {
     int num1, num2, result;
@@ -40,7 +40,7 @@ public class Calculator {
                 } catch (ArithmeticException e) {
                     this.exception1();
                     break;
-                }  // 0으로 나눌 때 발생하는 오류의 예외 처리 기능 추가
+                }
             default:
                 this.exception2();
         }
