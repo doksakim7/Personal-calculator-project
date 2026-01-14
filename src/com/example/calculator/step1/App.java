@@ -1,6 +1,7 @@
 package com.example.calculator.step1;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -10,14 +11,35 @@ import java.util.Scanner;
  * Time: 오후 2:49
  **/
 // ?: 궁금했던 내용
+// !: 공부하면서 알게 된 내용
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.print("첫 번째 숫자를 입력하세요: ");
-            int num1 = sc.nextInt();
-            System.out.print("두 번째 숫자를 입력하세요: ");
-            int num2 = sc.nextInt();
+            int num1, num2 = 0;   // !: 선언 및 초기화 필수
+
+            // 첫 번째 입력에서 숫자가 아니면 재입력 하는 기능 구현
+            while(true) {
+                try {
+                    System.out.print("첫 번째 숫자를 입력하세요: ");
+                    num1 = sc.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력하세요!");
+                    sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
+                }
+            }
+            // 두 번째 입력에서 숫자가 아니면 재입력 하는 기능 구현
+            while(true) {
+                try {
+                    System.out.print("두 번째 숫자를 입력하세요: ");
+                    num2 = sc.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력하세요!");
+                    sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
+                }
+            }
 
             System.out.print("사칙연산 기호를 입력하세요: ");
             String input = sc.next();   // ?: sc.nextLine() 을 쓰면 자동으로 엔터 입력되어 다음으로 넘어감
