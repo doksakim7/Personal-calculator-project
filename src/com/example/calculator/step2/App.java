@@ -41,8 +41,23 @@ public class App {
                 } // 세터를 이용하여 save 리스트에 result 이력을 넣는 기능을 구현
             }
             ArrayList<Integer> newSave = cal.getSave();
-            System.out.println("저장된 계산값: " + newSave);
-            // System.out.println("저장된 계산값: " + cal.save); // 저장된 값 확인(test)
+            System.out.println("저장된 계산값: " + newSave); // 저장된 값 확인(test)
+
+            // 저장된 값 중 처음값 삭제 기능 구현
+            while (true) {
+                if (!(newSave.isEmpty())) {
+                    System.out.println("저장된 값 중 가장 처음 값 삭제하시겠습니까? (네 입력시 삭제)");
+                    String del = sc.next();
+                    if (del.equals("네")) {
+                        cal.setDelete(0);
+                        System.out.println("저장된 계산값: " + newSave);
+                    } else {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String ex = sc.next();

@@ -62,9 +62,14 @@ public class Calculator {
         return this.save;
     }
 
-    // Setter 메서드 구현
+    // Setter 메서드 구현(저장)
     public void setSave(int save) {
         this.save.add(save);
+    }
+
+    // Setter 메서드 구현(삭제)
+    public void setDelete(int save) {
+        this.save.remove(save);
     }
 
 }
