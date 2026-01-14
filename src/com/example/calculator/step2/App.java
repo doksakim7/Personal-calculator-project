@@ -30,7 +30,7 @@ public class App {
             // 첫 번째 입력에서 숫자가 아니면 재입력 하는 기능 구현
             while(true) {
                 try {
-                    System.out.print("첫 번째 숫자를 입력하세요: ");
+                    System.out.print("첫 번째 숫자를 입력하세요(0과 양의 정수만 입력 가능): ");
                     num1 = sc.nextInt();
 
                     // 음의 정수가 입력되면 예외 발생하는 기능 구현
@@ -47,7 +47,7 @@ public class App {
             // 두 번째 입력에서 숫자가 아니면 재입력 하는 기능 구현
             while(true) {
                 try {
-                    System.out.print("두 번째 숫자를 입력하세요: ");
+                    System.out.print("두 번째 숫자를 입력하세요(0과 양의 정수만 입력 가능): ");
                     num2 = sc.nextInt();
 
                     // 음의 정수가 입력되면 예외 발생하는 기능 구현
@@ -62,7 +62,7 @@ public class App {
                 }
             }
 
-            System.out.print("사칙연산 기호를 입력하세요: ");
+            System.out.print("사칙연산 기호 중 하나를 입력하세요(+, -, *, /): ");
             char in = sc.next().charAt(0);
 
             // calculate 메서드 사용해서 사칙연산 수행하는 기능 구현

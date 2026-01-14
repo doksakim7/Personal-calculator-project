@@ -54,7 +54,7 @@ public class Calculator {
 
     // 올바른 사칙연산 기호가 아닌 경우 출력 메시지
     public void exception2() {
-        System.out.println("올바른 사칙연산 기호중에 하나를 입력하시오.(+, -, *, /)");
+        System.out.println("올바른 사칙연산 기호 중에 하나를 입력하시오.(+, -, *, /)");
     }
 
     // Getter 메서드 구현
