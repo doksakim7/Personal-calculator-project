@@ -34,7 +34,7 @@ public class App {
                         break;
                     }
                 } catch (InputMismatchException e) {
-                    System.out.println("양의 정수와 0만 입력 가능합니다!");
+                    System.out.println("0과 양의 정수만 입력 가능합니다!");
                     sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
                 }
             }
