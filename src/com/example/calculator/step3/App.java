@@ -1,0 +1,108 @@
+package com.example.calculator.step3;
+
+
+import com.example.calculator.step2.Calculator;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: jeongjihun
+ * Date: 26. 1. 14.
+ * Time: 오후 7:02
+ **/
+// ?: 궁금했던 내용
+// !: 공부하면서 알게 된 내용
+// Step 3 진행중...
+public class App {
+    public static void main(String[] args) {
+        // Calculator 인스턴스 생성
+        com.example.calculator.step2.Calculator cal = new Calculator();
+
+        Scanner sc = new Scanner(System.in);
+
+        // 반복문 시작
+        while (true) {
+            int num1, num2;   // !: 선언 필수
+            // ?: Step 1과 달리 Step 2에서는 왜 초기화 안해도 될까요?(아마 switch 문과 관련 있다고 생각중입니다...)
+
+            // 첫 번째 입력에서 숫자가 아니면 재입력 하는 기능 구현
+            while(true) {
+                try {
+                    System.out.print("첫 번째 숫자를 입력하세요(0과 양의 정수만 입력 가능): ");
+                    num1 = sc.nextInt();
+
+                    // 음의 정수가 입력되면 예외 발생하는 기능 구현
+                    if(num1 < 0) {
+                        throw new InputMismatchException();
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("양의 정수와 0만 입력 가능합니다!");
+                    sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
+                }
+            }
+            // 두 번째 입력에서 숫자가 아니면 재입력 하는 기능 구현
+            while(true) {
+                try {
+                    System.out.print("두 번째 숫자를 입력하세요(0과 양의 정수만 입력 가능): ");
+                    num2 = sc.nextInt();
+
+                    // 음의 정수가 입력되면 예외 발생하는 기능 구현
+                    if(num2 < 0) {
+                        throw new InputMismatchException();
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("0과 양의 정수만 입력 가능합니다!");
+                    sc.nextLine();  // !: 버퍼 제거 - 제거하지 않으면 무한루프 발생
+                }
+            }
+
+            System.out.print("사칙연산 기호 중 하나를 입력하세요(+, -, *, /): ");
+            char in = sc.next().charAt(0);
+
+            // calculate 메서드 사용해서 사칙연산 수행하는 기능 구현
+            // ?: 이 부분 다른 방법으로 구현할 수 있을지 궁금합니다.(Calculator 클래스에서 구현 가능한지 여부)
+            if (!(in == '+' || in == '-' || in == '*' || in == '/')) {
+                cal.calculate(num1, num2, in);
+            } else {
+                if (in == '/' && num2 == 0) {
+                    cal.calculate(num1, num2, in);
+                } else {
+                    int result = cal.calculate(num1, num2, in);
+                    cal.setSave(result);
+                    System.out.println("답: " + result);
+                } // 세터를 이용하여 save 리스트에 result 이력을 넣는 기능 구현
+            }
+            ArrayList<Integer> newSave = cal.getSave(); // 게터를 이용하여 리스트를 불러옴
+            System.out.println("저장된 계산값: " + newSave); // 현재 저장값 확인 - 저장 되었는지 확인
+
+            // 저장된 값 중 처음값 삭제 기능 구현
+            while (true) {
+                if (!(newSave.isEmpty())) {
+                    System.out.println("저장된 값 중 가장 처음 값 삭제하시겠습니까? (yes 입력시 삭제)");
+                    String del = sc.next();
+                    if (del.equals("yes")) {
+                        cal.setDelete(0);
+                        System.out.println("저장된 계산값: " + newSave); // 현재 저장값 확인 - 삭제 되었는지 확인
+                    } else {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            }
+
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            String ex = sc.next();
+            if (ex.equals("exit")) {
+                break;  // 반복문 종료
+            }
+        }
+    }
+}
