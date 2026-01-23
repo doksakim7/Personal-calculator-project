@@ -24,5 +24,5 @@ Java의 기본 문법과 객체지향 개념(클래스 분리, 메서드 설계 
            
 
 
-## 라이센스
-- This project is licensed under the MIT License.
+## 라이선스
+- This project is licensed under the MIT License. - see the LICENSE file for details.
