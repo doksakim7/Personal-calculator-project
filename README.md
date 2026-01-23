@@ -21,7 +21,13 @@ Java의 기본 문법과 객체지향 개념(클래스 분리, 메서드 설계 
 
 ## 프로젝트 구조
 <img width="715" height="243" alt="계산기 과제 프로젝트 구조" src="https://github.com/user-attachments/assets/d75da02c-3094-47b0-ae4a-f7a46bad4f14" />
-           
+
+- `Main` : 프로그램 진입점, 사용자 입력 흐름 시작
+- `CommerceSystem` : 전체 실행 흐름(메뉴 루프) 제어
+- `Category` : 카테고리 단위 상품 목록 관리
+- `Product` : 상품 정보/재고 등 도메인 데이터
+- `Customer` : 고객 정보/등급/누적 구매액 관리
+- (진행중) `ShoppingBag` : 장바구니 관리 및 주문 흐름 확장 예정
 
 
 ## 라이선스
